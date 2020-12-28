@@ -47,7 +47,7 @@ def filetime_from_hg(content):
     #    date: first commit time, update: last commit time or None
     # 4. file is managed, but dirty
     #    date: first commit time, update: fs time
-    path = content.source_path
+    path = content.source_path.encode(encoding='latin_1')
     root = repo.root()
     filelog = repo.log(revrange='.:0', files=[path,],
                        follow=content.settings.get('HG_FILETIME_FOLLOW', False))
